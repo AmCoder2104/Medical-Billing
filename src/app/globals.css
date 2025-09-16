@@ -1,0 +1,297 @@
+html,
+body {
+  overflow-x: hidden;
+}
+
+@import "tailwindcss";
+
+@theme {
+  --color-blue: #0d8dca;
+  --color-green: #20a64f;
+
+  --color-blue-hover: #0b7cb5;
+  --color-green-hover: #1c9246;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+.moving-img {
+  animation-name: moving;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes moving {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(40px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+/* styles/globals.css */
+
+.slick-dots {
+  bottom: -40px !important; /* optional spacing */
+}
+
+.slick-dots li button:before {
+  font-size: 12px !important; /* makes dots "fat" */
+  background: #d1d5db !important;
+  color: transparent !important;
+  opacity: 1 !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 10px !important;
+}
+
+.slick-dots li.slick-active button:before {
+  /* color: #0b7cb5 !important; */
+  background-color: #0b7cb5 !important;
+  opacity: 1 !important;
+  width: 30px !important;
+  margin-left: -8px !important;
+}
+
+.coolBeans {
+  border: 2px solid currentColor;
+  border-radius: 3rem;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+  overflow: hidden;
+  padding: 1rem 1.5rem;
+  position: relative;
+  text-decoration: none;
+  transition: 0.2s transform ease-in-out;
+  will-change: transform;
+  z-index: 0;
+  background-color: #0d8dca;
+  cursor: pointer;
+}
+
+.coolBeans::after {
+  background-color: black;
+  border-radius: 3rem;
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-100%, 0) rotate(10deg);
+  transform-origin: top left;
+  transition: 0.2s transform ease-out;
+  will-change: transform;
+  z-index: -1;
+}
+
+.coolBeans:hover::after {
+  transform: translate(0, 0);
+}
+
+.coolBeans:hover {
+  color: white;
+  transform: scale(1.05);
+}
+/* ====== 3D card animation ====== */
+.coolBeanss {
+  border: 2px solid currentColor;
+  border-radius: 3rem;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+  overflow: hidden;
+  padding: 1rem 1.5rem;
+  position: relative;
+  text-decoration: none;
+  transition: 0.2s transform ease-in-out;
+  will-change: transform;
+  z-index: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.coolBeanss::after {
+  background-color: black;
+  border-radius: 3rem;
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-100%, 0) rotate(10deg);
+  transform-origin: top left;
+  transition: 0.2s transform ease-out;
+  will-change: transform;
+  z-index: -1;
+}
+
+.coolBeanss:hover::after {
+  transform: translate(0, 0);
+}
+
+.coolBeanss:hover {
+  color: white;
+  transform: scale(1.05);
+}
+
+.perspective {
+  perspective: 1000px;
+}
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+@media screen and (max-width: 992px) {
+  .coolBeans {
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* ===== flip card animation ===== */
+.flip-card {
+  background-color: transparent;
+  height: 600px;
+  perspective: 1000px;
+  font-family: sans-serif;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+}
+
+.flip-card-front {
+  background: linear-gradient(
+    120deg,
+    #b4e7ff 60%,
+    #b4e7ff 88%,
+    #0d8dca 40%,
+    #0d8dca 48%
+  );
+  color: #0d8dca;
+}
+
+.flip-card-back {
+  background: linear-gradient(
+    120deg,
+    #0d8dca 30%,
+    #0d8dca 88%,
+    #b4e7ff 40%,
+    #b4e7ff 78%
+  );
+  color: white;
+  transform: rotateY(180deg);
+}
+/* ===== flip card animation end ===== */
+
+/* ===== popup styling start here ===== */
+.popupModal {
+  position: fixed;
+  /* top: -100%; */
+  top: 0;
+  transform: scale(0);
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* background-color: rgba(0, 0, 0, 0.691); */
+  background-color: rgba(13, 141, 202, 0.2);
+  z-index: 9999999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  /* opacity: 0; */
+  transition: 0.5s all ease-in-out;
+}
+
+.popupModal.show {
+  top: 0;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.popUpBanner {
+  width: 100%;
+  height: 90%;
+  max-width: 1000px;
+  transition: 0.5s all ease-in-out;
+  transform: scale(0.3);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  overflow: hidden;
+
+  opacity: 0;
+}
+.popUpBanner img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+.popUpBanner.show {
+  transform: scale(0.9);
+  opacity: 1;
+}
+
+.poppubbox {
+  position: absolute;
+  color: white;
+  right: 10px;
+  cursor: pointer;
+  top: 10px;
+  font-size: 40px;
+  z-index: 999999;
+}
+/* ===== popup styling end ===== */
